@@ -20,20 +20,87 @@ class Menu extends CI_Controller
         $this->load->view('Menu/index');
         $this->load->view('templates/footer');
     }
+    
     public function dataadmin()
     {
         $data['title'] = 'Menu Management';
         $data['user'] = $this->db->get_where('tbl_login', ['email' => $this->session->userdata('email')])->row_array();
-        $this->load->model('READ');
-        $data['siswa'] = $this->READ->get_data();
+        $data['all'] = $this->CRUD->readadmin();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebarAdmin', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('Menu/dadmin', $data);
         $this->load->view('templates/footer');
     }
-    public function update()
+    public function gettentor()
     {
+        $data['title'] = 'Menu Management';
+        $data['user'] = $this->db->get_where('tbl_login', ['email' => $this->session->userdata('email')])->row_array();
+        $data['all'] = $this->CRUD->readtentor();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebarAdmin', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('Menu/datatentor', $data);
+        $this->load->view('templates/footer');
+    }
+    public function updateadmin($id)
+    {
+        $data['title'] = 'Menu Management';
+        $data['user'] = $this->db->get_where('tbl_login', ['email' => $this->session->userdata('email')])->row_array();
+        $data['default'] = $this->CRUD->get_admin($id);
+        if(isset($_POST['tombol_submit'])){
+            $this->CRUD->update_ad($_POST, $id);
+            redirect('Menu/dataadmin');
+        }
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebarAdmin', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('Menu/edit_admin', $data);
+        $this->load->view('templates/footer');
+    }
+    public function hedit($id)
+    {
+        $this->load->model("CRUD");
+        $data['title'] = 'Menu Management';
+        $data['jk'] = $this->CRUD->readjk();
+        $data['paket'] = $this->CRUD->readpaket();
+        $data['jenjang'] = $this->CRUD->readjenjang();
+        $data['tipe'] = "Edit";
+        $data['user'] = $this->db->get_where('tbl_login', ['email' => $this->session->userdata('email')])->row_array();
+        $data['default'] = $this->CRUD->get_default($id);
+
+        if(isset($_POST['tombol_submit'])){
+            $this->CRUD->update($_POST, $id);
+            redirect('Menu/index');
+        }
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebarAdmin');
+        $this->load->view('templates/topbar');
+        $this->load->view('menu/edit');
+        $this->load->view('templates/footer');
+
+    }
+     public function tedit($id)
+    {
+        $this->load->model("CRUD");
+        $data['title'] = 'Menu Management';
+        $data['jk'] = $this->CRUD->readjk();
+        $data['user'] = $this->db->get_where('tbl_login', ['email' => $this->session->userdata('email')])->row_array();
+        $data['default'] = $this->CRUD->get_tentor($id);
+        if(isset($_POST['tombol_submit'])){
+            $this->CRUD->updateT($_POST, $id);
+            redirect('Menu/gettentor');
+        }
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebarAdmin', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('Menu/editT', $data);
+        $this->load->view('templates/footer');
+
+    }
+    public function update($id)
+    {
+        
         $id = $this->input->post('id');
         $ID_JK = $this->input->post('ID_JK');
         $ID_PAKET = $this->input->post('ID_PAKET');
@@ -78,8 +145,21 @@ class Menu extends CI_Controller
     }
     public function delete($id)
     {
-        $where = array('id_peserta' => $id);
-        $this->CRUD->hapus_data($where, 'member');
+        $where = array('ID_DAFTAR' => $id);
+        $this->CRUD->hapus_data($where, 'tbl_pendaftaran');
         redirect('Menu/index');
     }
+    public function deleteT($id)
+    {
+        $where = array('ID_TENTOR' => $id);
+        $this->CRUD->hapus_data($where, 'tbl_tentor');
+        redirect('Menu/gettentor');
+    }
+    public function delete_admin($id)
+    {
+        $where = array('NO' => $id);
+        $this->CRUD->hapus_data($where, 'tbl_login');
+        redirect('Menu/dataadmin');
+    }
+
 }

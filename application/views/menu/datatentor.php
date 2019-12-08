@@ -17,16 +17,12 @@
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
-                <th>No.Pendaftaran</th>
-                <th>Jenis kelamin</th>
-                <th>Paket les</th>
-                <th>Jenjang</th>
+                <th>Id Tentor</th>
                 <th>Nama</th>
                 <th>Alamat</th>
-                <th>Umur</th>
-                <th>N.Bapak</th>
-                <th>N.Ibu</th>
-                <th>No.Hp</th>
+                <th>Keahlian</th>
+                <th>No. Hp</th>
+                <th>Jenis kelamin</th>
                 <th colspan="2">Action</th>
               </tr>
             </thead>
@@ -35,19 +31,15 @@
               <?php
               foreach ($all as $key => $value) { ?>
                 <tr>
-                  <td><?= $value->ID_DAFTAR ?></td>
+                  <td><?= $value->ID_TENTOR ?></td>
+                  <td><?= $value->NAMA_TENTOR ?></td>
+                  <td><?= $value->ALAMAT_TENTOR ?></td>
+                  <td><?= $value->KEAHLIAN ?></td>
+                  <td><?= $value->NOHP_TENTOR ?></td>
                   <td><?= $value->JK ?></td>
-                  <td><?= $value->JENIS_PAKET ?></td>
-                  <td><?= $value->JENJANG ?></td>
-                  <td><?= $value->NAMA ?></td>
-                  <td><?= $value->ALAMAT ?></td>
-                  <td><?= $value->UMUR ?></td>
-                  <td><?= $value->NAMA_BAPAK ?></td>
-                  <td><?= $value->NAMA_IBU ?></td>
-                  <td><?= $value->NO_HP ?></td>
-                  <td> <a class="btn btn-primary" href="hedit/<?= $value->ID_DAFTAR ?>">Edit</a>
+                  <td> <a class="btn btn-primary" href="tedit/<?= $value->ID_TENTOR ?>">Edit</a>
                   </td>
-                  <td><a class="btn btn-danger" href="delete/<?= $value->ID_DAFTAR ?>">Delete</a></td>
+                  <td><a class="btn btn-danger" href="deleteT/<?= $value->ID_TENTOR ?>">Delete</a></td>
                 </tr>
               <?php } ?>
             </tbody>

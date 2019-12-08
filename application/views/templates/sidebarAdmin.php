@@ -37,7 +37,7 @@
             <span>Cek data Admin</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('Menu/index'); ?>">
+        <a class="nav-link" href="<?= base_url('Menu/gettentor'); ?>">
             <i class="fas fa-fw fa-user-edit"></i>
             <span>Cek data Tentor</span></a>
     </li>
@@ -56,7 +56,7 @@
             <span>Insert data Admin</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('Menu/index'); ?>">
+        <a class="nav-link" href="<?= base_url('Admin/daftartentor'); ?>">
             <i class="fas fa-fw fa-user-edit"></i>
             <span>Insert data Tentor</span></a>
     </li>

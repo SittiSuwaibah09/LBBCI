@@ -15,33 +15,25 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
-                                <th>Alamat</th>
-                                <th>No HP</th>
+                                <th>Name</th>
                                 <th>Email</th>
-                                <th>Jenis Kelamin</th>
                                 <th colspan="2">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if ($siswa->num_rows() > 0) : ?>
-                                <?php foreach ($siswa->result() as $p) : ?>
+                            <?php
+                            foreach ($all as $key => $value) { ?>
                                     <tr>
-                                        <td><?php echo $p->NO ?></td>
-                                        <td><?php echo $p->NAMA_ADMIN ?></td>
-                                        <td><?php echo $p->ALAMAT_ADMIN ?></td>
-                                        <td><?php echo $p->NOHP_ADMIN ?></td>
-                                        <td><?php echo $p->EMAIL_ADMIN ?></td>
-                                        <td><?php echo $p->ID_JK ?></td>
-                                        <td> <a class="btn btn-primary" href="">Edit</a>
-                                        </td>
-                                        <td><a class="btn btn-danger" href="">Delete</a></td>
+                                        <td><?= $value->NO ?></td>
+                                        <td><?= $value->NAME ?></td>
+                                        <td><?= $value->EMAIL ?></td>
+                                        <td> <a class="btn btn-primary" href="updateadmin/<?= $value->NO ?>">Edit</a>
+                                        
+                                        <a class="btn btn-danger" href="delete_admin/<?= $value->NO ?>">Delete</a></td>
                                     </tr>
-                                <?php endforeach; ?>
-
-                            <?php endif; ?>
-
+            
                             </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>

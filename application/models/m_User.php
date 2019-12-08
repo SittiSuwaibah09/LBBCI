@@ -18,4 +18,5 @@ class m_User extends CI_Model
         $this->db->query("INSERT INTO tbl_pendaftaran (ID_DAFTAR, NAMA, ALAMAT, UMUR, NAMA_BAPAK, NAMA_IBU, NO_HP, ID_JK, ID_JENJANG, ID_PAKET) VALUES ('', '" . $nama . "', '" . $alamat . "', '" . $umur . "', '" . $bapak . "', '" . $ibu . "', '" . $nohp . "', '" . $jk . "', '" . $jenjang . "', '" . $paket . "');");
         return $this->db->affected_rows();
     }
+
 }

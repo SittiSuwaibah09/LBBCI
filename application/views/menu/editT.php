@@ -45,8 +45,13 @@
 
 			<form class="contact100-form validate-form" method="post" ">
 				<div class="wrap-input100">
-					<span class="label-input100">No. Peserta :</span>
-					<input class="input100" type="text" name="id" value="<?=isset($default['ID_DAFTAR'])? $default['ID_DAFTAR'] : ""?>">
+					<span class="label-input100">No. Tentor :</span>
+					<input class="input100" type="text" name="id" value="<?=isset($default['ID_TENTOR'])? $default['ID_TENTOR'] : ""?>">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate="Phone is required">
+					<span class="label-input100">Nama:</span>
+					<input class="input100" type="text" name="nama" value="<?=isset($default['NAMA_TENTOR'])? $default['NAMA_TENTOR'] : ""?>">
 					<span class="focus-input100"></span>
 				</div>
 
@@ -73,79 +78,22 @@
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-					<span class="label-input100">Paket:</span>
-					<select name="paket" id="paket" class="form-control">
-                    <option selected>Pilih Paket</option>
-                    <?php foreach ($paket as $key => $value) { ?>
-                    	<?php 
-                    		if ($default['JENIS_PAKET'] == $value->JENIS_PAKET) {?>
-                    			<option value="<?= $value->ID_PAKET ?>" selected>
-                           			 <?= $value->JENIS_PAKET ?></option>
-                    		<?php }
-                    		else{?>
-
-                    		<option value="<?= $value->ID_PAKET ?>" >
-                            <?= $value->JENIS_PAKET ?></option>
-
-                    		<?php }
-                    	
-                        
-                    } ?>
-                </select>
-					<span class="focus-input100"></span>
-				</div>
-
 				<div class="wrap-input100 validate-input" data-validate="Phone is required">
-					<span class="label-input100">Jenjang:</span>
-					<select name="jenjang" id="jenjang" class="form-control">
-                    <option selected>Pilih Jenjang</option>
-                    <?php foreach ($jenjang as $key => $value) { ?>
-                    	<?php 
-                    		if ($default['JENJANG'] == $value->JENJANG) {?>
-                    			<option value="<?= $value->ID_JENJANG ?>" selected>
-                           			 <?= $value->JENJANG ?></option>
-                    		<?php }
-                    		else{?>
-
-                    		<option value="<?= $value->ID_JENJANG ?>" >
-                            <?= $value->JENJANG ?></option>
-
-                    		<?php }
-                    	
-                        
-                    } ?>
-                </select>
+					<span class="label-input100">Keahlian:</span>
+					<input class="input100" type="text" name="ahli" value="<?=isset($default['KEAHLIAN'])? $default['KEAHLIAN'] : ""?>">
 					<span class="focus-input100"></span>
 				</div>
-				<div class="wrap-input100 validate-input" data-validate="Phone is required">
-					<span class="label-input100">Nama:</span>
-					<input class="input100" type="text" name="nama" value="<?=isset($default['NAMA'])? $default['NAMA'] : ""?>">
-					<span class="focus-input100"></span>
-				</div>
+
+				
+				
 				<div class="wrap-input100 validate-input" data-validate="Phone is required">
 					<span class="label-input100">Alamat:</span>
-					<input class="input100" type="text" name="alamat" value="<?=isset($default['ALAMAT'])? $default['ALAMAT'] : ""?>">
-					<span class="focus-input100"></span>
-				</div>
-				<div class="wrap-input100 validate-input" data-validate="Phone is required">
-					<span class="label-input100">UMUR:</span>
-					<input class="input100" type="text" name="umur" value="<?=isset($default['UMUR'])? $default['UMUR'] : ""?>">
-					<span class="focus-input100"></span>
-				</div>
-				<div class="wrap-input100 validate-input" data-validate="Phone is required">
-					<span class="label-input100">Nama Bapak:</span>
-					<input class="input100" type="text" name="bapak" value="<?=isset($default['NAMA_BAPAK'])? $default['NAMA_BAPAK'] : ""?>">
-					<span class="focus-input100"></span>
-				</div>
-				<div class="wrap-input100 validate-input" data-validate="Phone is required">
-					<span class="label-input100">Nama Ibu:</span>
-					<input class="input100" type="text" name="ibu" value="<?=isset($default['NAMA_IBU'])? $default['NAMA_IBU'] : ""?>">
+					<input class="input100" type="text" name="alamat" value="<?=isset($default['ALAMAT_TENTOR'])? $default['ALAMAT_TENTOR'] : ""?>">
 					<span class="focus-input100"></span>
 				</div>
 				<div class="wrap-input100 validate-input" data-validate="Phone is required">
 					<span class="label-input100">No. Hp:</span>
-					<input class="input100" type="text" name="nohp" value="<?=isset($default['ID_DAFTAR'])? $default['NO_HP'] : ""?>">
+					<input class="input100" type="text" name="nohp" value="<?=isset($default['NOHP_TENTOR'])? $default['NOHP_TENTOR'] : ""?>">
 					<span class="focus-input100"></span>
 				</div>
 				<div class="container-contact100-form-btn">
