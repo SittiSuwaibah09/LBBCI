@@ -20,7 +20,7 @@ class Menu extends CI_Controller
         $this->load->view('Menu/index');
         $this->load->view('templates/footer');
     }
-    
+
     public function dataadmin()
     {
         $data['title'] = 'Menu Management';
@@ -41,6 +41,17 @@ class Menu extends CI_Controller
         $this->load->view('templates/sidebarAdmin', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('Menu/datatentor', $data);
+        $this->load->view('templates/footer');
+    }
+    public function gettentorU()
+    {
+        $data['title'] = 'Menu Management';
+        $data['user'] = $this->db->get_where('tbl_login', ['email' => $this->session->userdata('email')])->row_array();
+        $data['all'] = $this->CRUD->readtentor();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebarUser', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('Menu/viewtentor', $data);
         $this->load->view('templates/footer');
     }
     public function updateadmin($id)
@@ -100,7 +111,7 @@ class Menu extends CI_Controller
     }
     public function update($id)
     {
-        
+
         $id = $this->input->post('id');
         $ID_JK = $this->input->post('ID_JK');
         $ID_PAKET = $this->input->post('ID_PAKET');
