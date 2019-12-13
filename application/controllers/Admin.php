@@ -48,7 +48,7 @@ class Admin extends CI_Controller
                 $jk = $this->input->post('jk');
 
                 $this->m_tentor->tambah_tentor($nama, $alamat, $ahli, $nohp, $jk);
-                redirect('admin/index');
+                redirect('Menu/gettentor');
             } else {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sidebarAdmin', $data);

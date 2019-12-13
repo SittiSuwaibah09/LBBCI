@@ -71,7 +71,7 @@
     </div>
 
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('user/editprofile'); ?>">
+        <a class="nav-link" href="<?= base_url('tentor/viewtentor'); ?>">
             <i class="fas fa-fw fa-book"></i>
             <span>Daftar Tentor</span></a>
     </li>

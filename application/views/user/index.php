@@ -8,8 +8,8 @@
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-              <div class="h5 mb-0 font-weight-bold text-primary text-uppercase mb-4">Daftar Paket</div>
-              <div class="text-xs font-weight-bold text-gray-800">View >>> </div>
+              <div class="h5 mb-0 font-weight-bold text-primary text-uppercase mb-4">Daftar Tentor</div>
+              <div class="text-xs font-weight-bold text-gray-800"><a class="nav-link" href="<?= base_url('tentor/viewtentor'); ?>">View >>> </a></div>
             </div>
             <div class="col-auto">
               <i class="fas fa-book fa-2x text-gray-300"></i>
@@ -26,7 +26,7 @@
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <div class="h5 mb-0 font-weight-bold text-success text-uppercase mb-4">Registrasi</div>
-              <div class="text-xs font-weight-bold text-gray-800">View >>></div>
+              <div class="text-xs font-weight-bold text-gray-800"><a class="nav-link" href="<?= base_url('user/daftarles'); ?>">View >>></a></div>
             </div>
             <div class="col-auto">
               <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -43,7 +43,7 @@
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <div class="h5 mb-0 font-weight-bold text-info text-uppercase mb-4">Edit Profile</div>
-              <div class="text-xs font-weight-bold text-gray-800">View >>></div>
+              <div class="text-xs font-weight-bold text-gray-800"><a class="nav-link" href="<?= base_url('user/editprofile'); ?>">View >>></a></div>
             </div>
             <div class="col-auto">
               <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
