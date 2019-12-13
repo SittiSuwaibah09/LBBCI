@@ -43,6 +43,12 @@ class User extends CI_Controller
 		$data['title'] = 'Edit Profile';
 		$this->form_validation->set_rules('name', 'Nama', 'trim|required');
 		$this->form_validation->set_rules('email', 'Email', 'trim|required');
+		$config['upload_path'] = './assets/img/profile/';
+		$config['allowed_types'] = 'jpg|jpeg|png';
+		$config['max_size'] = 0;
+		$config['overwrite'] = TRUE;
+
+		$this->upload->initialize($config);
 		if ($this->form_validation->run()) {
 			$this->_save_profile();
 		} else {
@@ -59,8 +65,11 @@ class User extends CI_Controller
 	{
 		$nama = $this->input->post('name');
 		$email = $this->input->post('email');
+		$this->upload->do_upload('UbahFoto');
+		$gbr = $this->upload->data();
+		$gambar = $gbr['file_name'];
 
-		if ($this->m_user->edit_data($nama, $email)) {
+		if ($this->m_user->edit_data($nama, $email, $gambar)) {
 			$this->session->set_flashdata('message', '<div class="alert alert-sucess" role="alert">Password Berhasil diganti. silahkan loginulang.</div>');
 			redirect('user/profile');
 		} else {
@@ -128,6 +137,6 @@ class User extends CI_Controller
 				$this->load->view('templates/footerUser');
 			}
 		}
-		
+
 	}
 }

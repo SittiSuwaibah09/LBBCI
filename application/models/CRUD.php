@@ -38,6 +38,9 @@ class CRUD extends CI_Model
   }
   public function update_ad($post, $id){
 
+        $this->upload->do_upload('UbahFoto');
+        $gbr = $this->upload->data();
+        $gambar = $gbr['file_name'];
         $no = $this->input->post('no');
         $name = $this->input->post('nama');
         $email = $this->input->post('email');
@@ -46,6 +49,7 @@ class CRUD extends CI_Model
             'NO' => $no,
             'NAME' => $name,
             'EMAIL' => $email,
+            'IMAGE' => $gambar
 
         );
         $where = array(
@@ -94,7 +98,7 @@ class CRUD extends CI_Model
         $ahli = $this->input->post('ahli');
         $nohp = $this->input->post('nohp');
         $jk = $this->input->post('jk');
-    $data = array(  
+    $data = array(
             'NAMA_TENTOR' => $nama,
             'ALAMAT_TENTOR' => $alamat,
             'KEAHLIAN' => $ahli,

@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
     <?= $this->session->flashdata('message'); ?>
-    <form method="POST" action="<?= base_url('user/editprofile') ?>">
+    <form method="POST" action="<?= base_url('user/editprofile') ?>" enctype="multipart/form-data">
         <div class="form-group">
             <label for="exampleInputEmail1">Name</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" value="<?= $user_edit['NAME'] ?>">
@@ -17,7 +17,7 @@
 
         <div class="form-group">
             <label for="exampleFormControlFile1">Edit Foto Profile</label>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            <input type="file" name="UbahFoto" class="form-control-file" id="exampleFormControlFile1">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

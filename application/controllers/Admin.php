@@ -25,12 +25,12 @@ class Admin extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebarAdmin', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('admin/index', $data);
+        $this->load->view('admin/profilA', $data);
         $this->load->view('templates/footer');
     }
     public function daftartentor()
     {
-        
+
         $data['title'] = 'Input Tentor';
         $data['user'] = $this->db->get_where('tbl_login', ['EMAIL' => $this->session->userdata('email')])->row_array();
         $data['jk'] = $this->CRUD->readjk();

@@ -1,7 +1,7 @@
 <div class="container">
 		<h1>EDIT ADMIN</h1>
-		
-		<form method="post" class="form-horizontal">
+
+		<form method="post" class="form-horizontal" enctype="multipart/form-data">
 			<div class="form-group">
 				<label class="control-label col-sm-2">
 					No
@@ -12,7 +12,7 @@
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2">
-					Nama					
+					Nama
 				</label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" name="nama" value="<?=isset($default['NAME'])? $default['NAME'] : ""?>">
@@ -20,12 +20,16 @@
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2">
-					Email					
+					Email
 				</label>
 				<div class="col-sm-10">
 					<input type="email" class="form-control" name="email" value="<?=isset($default['EMAIL'])? $default['EMAIL'] : ""?>">
 				</div>
 			</div>
+			<div class="form-group">
+	            <label for="exampleFormControlFile1">Edit Foto </label>
+	            <input type="file" name="UbahFoto" class="form-control-file" id="exampleFormControlFile1">
+	        </div>
 			<center>
 				<button name="tombol_submit" class="btn btn-primary">
 					Simpan

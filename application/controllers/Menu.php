@@ -59,9 +59,15 @@ class Menu extends CI_Controller
         $data['title'] = 'Menu Management';
         $data['user'] = $this->db->get_where('tbl_login', ['email' => $this->session->userdata('email')])->row_array();
         $data['default'] = $this->CRUD->get_admin($id);
+        $config['upload_path'] = './assets/img/profile/';
+		$config['allowed_types'] = 'jpg|jpeg|png';
+		$config['max_size'] = 0;
+		$config['overwrite'] = TRUE;
+
+		$this->upload->initialize($config);
         if(isset($_POST['tombol_submit'])){
             $this->CRUD->update_ad($_POST, $id);
-            redirect('Menu/dataadmin');
+            redirect('admin/index');
         }
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebarAdmin', $data);

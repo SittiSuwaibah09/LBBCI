@@ -50,11 +50,7 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('Menu/index'); ?>">
-            <i class="fas fa-fw fa-user-edit"></i>
-            <span>Insert data Admin</span></a>
-    </li>
+    
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url('Admin/daftartentor'); ?>">
             <i class="fas fa-fw fa-user-edit"></i>

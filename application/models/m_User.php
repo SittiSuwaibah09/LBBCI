@@ -8,9 +8,9 @@ class m_User extends CI_Model
         $result = $this->db->query('SELECT * FROM tbl_login l, role_id v WHERE l.EMAIL="' . $this->session->userdata('email') . '" AND l.ID="' . $this->session->userdata('role_id') . '" AND l.ID=v.ID group by l.EMAIL')->row_array();
         return $result;
     }
-    public function edit_data($nama, $email)
+    public function edit_data($nama, $email, $gambar)
     {
-        $this->db->query("UPDATE tbl_login SET NAME='" . $nama . "', EMAIL='" . $email . "' WHERE EMAIL='" . $this->session->userdata('email') . "'");
+        $this->db->query("UPDATE tbl_login SET NAME='" . $nama . "', EMAIL='" . $email . "', IMAGE='" . $gambar . "' WHERE EMAIL='" . $this->session->userdata('email') . "'");
         return $this->db->affected_rows();
     }
     public function tambah_user($nama, $alamat, $umur, $bapak, $ibu, $nohp, $jk, $jenjang, $paket)
