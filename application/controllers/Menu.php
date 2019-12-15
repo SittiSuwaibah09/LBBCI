@@ -16,7 +16,7 @@ class Menu extends CI_Controller
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebarAdmin');
-        $this->load->view('templates/topbar');
+        $this->load->view('templates/topbarUser');
         $this->load->view('Menu/index');
         $this->load->view('templates/footer');
     }
@@ -28,7 +28,7 @@ class Menu extends CI_Controller
         $data['all'] = $this->CRUD->readadmin();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebarAdmin', $data);
-        $this->load->view('templates/topbar', $data);
+        $this->load->view('templates/topbarUser', $data);
         $this->load->view('Menu/dadmin', $data);
         $this->load->view('templates/footer');
     }
@@ -39,7 +39,7 @@ class Menu extends CI_Controller
         $data['all'] = $this->CRUD->readtentor();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebarAdmin', $data);
-        $this->load->view('templates/topbar', $data);
+        $this->load->view('templates/topbarUser', $data);
         $this->load->view('Menu/datatentor', $data);
         $this->load->view('templates/footer');
     }
@@ -50,7 +50,7 @@ class Menu extends CI_Controller
         $data['all'] = $this->CRUD->readtentor();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebarUser', $data);
-        $this->load->view('templates/topbar', $data);
+        $this->load->view('templates/topbarUser', $data);
         $this->load->view('Menu/viewtentor', $data);
         $this->load->view('templates/footer');
     }
