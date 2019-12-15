@@ -99,6 +99,35 @@ class User extends CI_Controller
 		$this->load->view('user/lesreguler', $data);
 		$this->load->view('templates/footerUser');
 	}
+	public function bayar()
+	{
+		$data['title'] = 'Pembayaran les';
+		$data['user'] = $this->db->get_where('tbl_login', ['EMAIL' => $this->session->userdata('email')])->row_array();
+		$data['nama'] = $this->CRUD->readdaftar();
+		$config['upload_path'] = './assets/img/profile/';
+		$config['allowed_types'] = 'jpg|jpeg|png';
+		$config['max_size'] = 0;
+		$config['overwrite'] = TRUE;
+
+		$this->upload->initialize($config);
+		if ($data['user']) {
+			$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
+			$this->form_validation->set_rules('foto', 'Foto', 'trim|required');
+			if ($this->form_validation->run()) {
+				$nama = $this->input->post('nama');
+				$foto = $this->input->post('foto');
+
+				$this->m_user->tambah_pembayaran($nama, $foto);
+				redirect('user/index');
+			} else {
+				$this->load->view('templates/headerUser', $data);
+				$this->load->view('templates/sidebarUser', $data);
+				$this->load->view('templates/topbarUser', $data);
+				$this->load->view('user/pembayaran', $data);
+				$this->load->view('templates/footerUser');
+			}
+		}
+	}
 	public function daftarles()
 	{
 		$data['title'] = 'Registrasi les';
@@ -137,6 +166,5 @@ class User extends CI_Controller
 				$this->load->view('templates/footerUser');
 			}
 		}
-
 	}
 }

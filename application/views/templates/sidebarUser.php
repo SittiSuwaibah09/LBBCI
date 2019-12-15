@@ -64,6 +64,12 @@
             <span>Register Les</span></a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('user/bayar'); ?>">
+            <i class="fas fa-fw fa-book"></i>
+            <span>Pembayaran Les</span></a>
+    </li>
+
     <hr class="sidebar-divider">
 
     <div class="sidebar-heading">
