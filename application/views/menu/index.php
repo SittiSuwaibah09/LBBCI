@@ -40,7 +40,7 @@
                 <th>N.Bapak</th>
                 <th>N.Ibu</th>
                 <th>No.Hp</th>
-                <th colspan="2">Action</th>
+                <th class="text-center" colspan="3">Action</th>
               </tr>
             </thead>
             <tbody>

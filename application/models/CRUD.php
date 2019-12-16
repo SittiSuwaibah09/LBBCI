@@ -133,12 +133,17 @@ class CRUD extends CI_Model
   }
   public function all_data()
   {
-    $result = $this->db->query('SELECT * FROM tbl_pendaftaran p, tbl_les s, tbl_jenjang j, tbl_jk k, tbl_pembayaran b where  p.ID_JK=k.ID_JK AND p.ID_JENJANG=j.ID_JENJANG AND p.ID_PAKET=s.ID_PAKET ')->result();
+    $result = $this->db->query('SELECT * FROM tbl_pendaftaran p, tbl_les s, tbl_jenjang j, tbl_jk k where  p.ID_JK=k.ID_JK AND p.ID_JENJANG=j.ID_JENJANG AND p.ID_PAKET=s.ID_PAKET ')->result();
     return $result;
   }
   public function readadmin()
   {
     $result = $this->db->query('SELECT * FROM tbl_login l, role_id r where l.ID=r.ID AND l.ID=1')->result();
+    return $result;
+  }
+  public function readbayar()
+  {
+    $result = $this->db->query('SELECT * FROM tbl_pendaftaran p, tbl_pembayaran t, tbl_jk j, tbl_les l WHERE p.ID_JK=j.ID_JK AND p.ID_DAFTAR=t.ID_DAFTAR AND p.ID_PAKET=l.ID_PAKET' )->result();
     return $result;
   }
   public function readtentor()

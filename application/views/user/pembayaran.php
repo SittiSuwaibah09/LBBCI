@@ -1,7 +1,7 @@
 <!-- Begin Page Content -->
 <div class="col-sm-10 container-fluid">
     <?= $this->session->flashdata('message'); ?>
-    <form action="<?= base_url('user/bayar'); ?>" method="POST">
+    <form action="<?= base_url('user/bayar'); ?>" method="POST" enctype="multipart/form-data" >
         <div class="">
             <br>
             <h2 align="center">Form Pembayaran Les LBBCI</h2>

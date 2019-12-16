@@ -112,10 +112,13 @@ class User extends CI_Controller
 		$this->upload->initialize($config);
 		if ($data['user']) {
 			$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
-			$this->form_validation->set_rules('foto', 'Foto', 'trim|required');
+			// $this->form_validation->set_rules('foto', 'Foto', 'trim|required');
 			if ($this->form_validation->run()) {
 				$nama = $this->input->post('nama');
 				$foto = $this->input->post('foto');
+				$this->upload->do_upload('foto');
+				$gbr = $this->upload->data();
+				$foto = $gbr['file_name'];
 
 				$this->m_user->tambah_pembayaran($nama, $foto);
 				redirect('user/index');

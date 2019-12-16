@@ -32,6 +32,11 @@
             <span>Cek data Peserta</span></a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('menu/statusmember'); ?>">
+            <i class="fas fa-fw fa-user-edit"></i>
+            <span>Cek status pembayaran</span></a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="<?= base_url('Menu/dataadmin'); ?>">
             <i class="fas fa-fw fa-user-edit"></i>
             <span>Cek data Admin</span></a>
@@ -50,7 +55,7 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    
+
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url('Admin/daftartentor'); ?>">
             <i class="fas fa-fw fa-user-edit"></i>

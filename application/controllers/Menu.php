@@ -20,6 +20,18 @@ class Menu extends CI_Controller
         $this->load->view('Menu/index');
         $this->load->view('templates/footer');
     }
+    public function statusmember()
+    {
+        $data['title'] = 'Menu Management';
+        $data['user'] = $this->db->get_where('tbl_login', ['email' => $this->session->userdata('email')])->row_array();
+        $data['all'] = $this->CRUD->readbayar();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebarAdmin', $data);
+        $this->load->view('templates/topbarUser',$data);
+        $this->load->view('Menu/pembayaran',$data );
+        $this->load->view('templates/footer');
+    }
 
     public function dataadmin()
     {
